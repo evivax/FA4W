@@ -1,0 +1,28 @@
+Installation instructions for the extension „FA4W - Field Authorzation for Web Client“
+Import Nugget
+	•	Run in the transaction SE38  Porgramm „ZSAPLINK“
+	•	Select „Import Nugget
+		o	Package Name „ZFAW“
+		o	Select the Nugget File Name from the Harddisk
+		o	Press Run
+Set up BSP Enhancement
+	•	Call transaction BSP_WD_CMPWB
+		o	Display Component „BSP_DLC_CONF“
+				If no extension set is available yet, create one
+		o	Menu -> Environment  -> Enhancement Definitions
+		o	In the window, select the appropriate extension set and select „ Enhancement Definition “
+		o	Click Edit on and create a new entry with the following values:
+			Enhancement Set		EVX
+			Component			BSP_DLC_CONF
+			Assigned BSP Application	ZFAW_BSP_DLC_CN
+			RT Rep.Src.Type		BSP Application
+			BSP Applicatn			ZFAW_BSP_DLC_CN
+			Page				Repository.xml
+		o	Select the just created entry and click on „Controller Substitutes”
+		o	Here also add new entries and enter the values using copy & paste
+			BSP_DLC_CONF	BSPWDComponent	ZFAW_BSP_DLC_CN	BSPWDComponent
+			BSP_DLC_CONF	GridConAdvV	ZFAW_BSP_DLC_CN	GridConAdvV
+			ZFAW_BSP_DLC_CN	PopUpViewAuthObj	ZFAW_BSP_DLC_CN	PopUpViewAuthObj
+			ZFAW_BSP_DLC_CN	WindowPopUpViewAuthObj	ZFAW_BSP_DLC_CN	WindowPopUpViewAuthObj
+		o	Restart the transaction and the component is extended
+
